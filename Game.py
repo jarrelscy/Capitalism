@@ -12,7 +12,7 @@ class Game:
             game = {}
             game['Actions'] = []
             game['Players'] = [playerName]
-            firebase.put('/', gameID, self.game)
+            firebase.put('/', gameID, game)
         self.game = game
         self.gameID = gameID
         self.player = playerName
