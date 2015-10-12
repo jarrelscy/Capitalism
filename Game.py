@@ -12,10 +12,11 @@ class Game:
             game = {}
             game['Actions'] = []
             game['Players'] = [playerName]
+            firebase.put('/', gameID, self.game)
         self.game = game
         self.gameID = gameID
         self.player = playerName
-        firebase.put('/', gameID, self.game)
+        
     def getCurrentLock(self):
         return firebase.get('/'+self.gameID, 'lock')
     def lock(self):
@@ -47,9 +48,6 @@ class Game:
             
 if __name__ == '__main__':
     g = Game('Game1', 'jarrel')
-    g.lock()
-    g.addPlayer('jonathan')
-    g.flush()
     g.lock()
     g.addAction(Action(action='buy', target='marketing'))
     g.addAction(Action(action='buy', target='marketing'))
