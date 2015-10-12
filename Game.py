@@ -32,10 +32,11 @@ class Game:
             self.game['Players'] = []
         self.game['Players'].append(player)
     def addAction(self, action):
+        # TODO ensure actions are correct actions, e.g. in turn etc. 
         if 'Actions' not in self.game:
             self.game['Actions'] = []
         action['player'] = self.player
-        self.game['Actions'].append(action)
+        self.game['Actions'].append(action)        
     def flush(self):
         lock = self.getCurrentLock()
         if lock == self.player:
